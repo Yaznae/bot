@@ -1,7 +1,13 @@
-FROM node:16
-WORKDIR ./
-COPY package*.json ./
+FROM node:latest
+
+RUN mkdir -p /usr/src/bot
+
+WORKDIR /usr/src/bot
+
+COPY package.json /usr/src/bot
+
 RUN npm install
-COPY . .
-EXPOSE 8080
-CMD [ "node", "index.js" ]
+
+COPY . /usr/src/bot
+
+CMD ["node", "index.js"]
