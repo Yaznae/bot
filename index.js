@@ -10,7 +10,7 @@ bot.once(Events.ClientReady, c => {
     bot.user.setActivity('in hell', { type: ActivityType.Streaming, url: 'https://twitch.tv/rinsednreused' });
 
     command(bot, ['ping', 'test'], (msg) => {
-        msg.channel.send('pong.')
+        msg.channel.send(`latency is \`${Date.now() - msg.createdTimestamp}ms\`.`)
     });
 });
 
